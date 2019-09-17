@@ -6,3 +6,12 @@ Trabajos de ADD
 Hola Mundo
 
 > Notas
+
+
+Frase de prueba
+
+```
+git clone (codigo)
+```
+
+![imagen_triangulo](img/trngl.jpg)
