@@ -2,4 +2,4 @@
 
 * Windows -> Windows
 
-![imagen_w-w](img/w-w)
+![imagen_w-w](img/w-w.png)
