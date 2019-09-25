@@ -15,3 +15,4 @@
 * Comprobación de Cliente Linux -> Servidor Linux
 
 ![imagen_l-w](img/l-l.png)
+
