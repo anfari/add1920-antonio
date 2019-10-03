@@ -41,7 +41,7 @@ Para solucionar esto y que nos deje conectar al servidor:
 * En Windows simplemente clickamos en ***Sí***, aceptando la nueva clave.
 
 * En Linux debemos utilizar el siguiente comando para borrar la clave antigua y poder acceder de nuevo.
-> ssh-keygen -R ssh-server24g -f $HOME/username/.ssh/known_hosts
+> ssh-keygen -R ssh-server24g -f /home/username/.ssh/known_hosts
 
 ![sol_linux](img/3.1.2.png)
 
