@@ -59,13 +59,13 @@
 
 ![comprobar3.3](img/11.png)
 
-- Por ultimo le damos a reanudar para que el archivo se convierta en PDF.
+- Imprimimos el fichero y comprobamos que esta en la cola de impresión.
 
 ![comprobar3.3](img/12.png)
 
 ![comprobar3.3](img/13.png)
 
-- Comprobamos que se imprime:
+- Por ultimo le damos a reanudar para que el archivo se imprima.
 
 ![comprobar3.3](img/14.png)
 
