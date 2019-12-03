@@ -15,7 +15,7 @@
 
 ![db_check](img/2.3.1.png)
 
-* Realizamos la misma comprobación pero utilizndo usuario/clave
+* Realizamos la misma comprobación pero utilizando usuario/clave
 >ldapsearch -H ldap://localhost -b "dc=ldap24,dc=curso1920" -W -D "cn=Directory Manager" | grep dn
 
 ![check_acceso](img/2.3.2.png)
