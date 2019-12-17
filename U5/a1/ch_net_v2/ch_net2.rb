@@ -8,6 +8,8 @@ def menu
 	1. nc-classroom109
 	2. nc-myhome"
 
+	puts""
+	print "Select option [Enter=exit]:"
 	option = gets.chop
 
 	if option == "r"
