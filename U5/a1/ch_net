@@ -1,0 +1,19 @@
+#!/usr/bin/env ruby
+
+puts"1)DHCP\n2)Aula109\n3)Casa"
+option = gets.chop
+
+if option == "1"
+  system("systemctl restart network.service")
+  system("dhclient eth0")
+elsif option == "2"
+  system("systemctl restart network.service")
+  system("ip addr add 172.19.24.50/16 dev eth0")
+  system("ip link set eth0 up")
+elsif option == "3"
+  system("systemctl restart network.service")
+  system("ip addr add 192.168.1.100/24 dev eth0")
+  system("ip link set eth0 up")
+else
+  puts"No existe la opción"
+end
