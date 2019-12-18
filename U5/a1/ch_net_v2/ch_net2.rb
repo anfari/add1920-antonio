@@ -5,8 +5,9 @@ def menu
 	CHange NETwork configuration (v2)
 	=================================
 	r. Reset
-	1. nc-classroom109
-	2. nc-myhome"
+	1. Classroom 109
+	2. My Home
+	3. DHCP"
 
 	puts""
 	print "Select option [Enter=exit]:"
@@ -18,13 +19,12 @@ def menu
 		classroom109
 	elsif option == "2"
 		myhome
-	else
-	  puts"No existe la opción"
+	elsif option == "3"
+		dhcp
 	end
 end
 
 def reset
-	system("cp dhcp /etc/sysconfig/network/ifcfg-eth0")
 	system("ifdown eth0")
 	system("ifup eth0")
 end
@@ -37,6 +37,12 @@ end
 
 def myhome
 	system("cp myhome /etc/sysconfig/network/ifcfg-eth0")
+	system("ifdown eth0")
+	system("ifup eth0")
+end
+
+def dhcp
+	system("cp dhcp /etc/sysconfig/network/ifcfg-eth0")
 	system("ifdown eth0")
 	system("ifup eth0")
 end
