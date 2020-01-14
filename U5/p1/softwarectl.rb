@@ -3,6 +3,36 @@
 option = ARGV[0]
 filename = ARGV[1]
 
+def check(package)
+  status = `whereis #{package[0]} | grep bin | wc -l`.chop
+
+  if status == "0"
+    puts "#{package[0]} - (U) uninstalled"
+  elsif status == "1"
+    puts "#{package[0]} - (I) installed"
+  end
+end
+
+def install(package)
+  status = `whereis #{package[0]} | grep bin | wc -l`.chop
+
+  if package[1] == "install"
+    if status == "0"
+      `apt-get install -y #{package[0]}`
+      puts "#{package[0]} instalado."
+    elsif status == "1"
+      puts "#{package[0]} ya instalado"
+    end
+
+  elsif package[1] == "remove"
+    if status == "0"
+      puts "#{package[0]} no está instalado"
+    elsif status == "1"
+      `apt-get remove -y #{package[0]}`
+      puts "#{package[0]} desinstalado"
+    end
+  end
+end
 
 
 if option.nil?
@@ -31,11 +61,22 @@ elsif option == '--version'
 
 elsif option == '--status'
   lines = `cat #{filename}`.split("\n")
-  for lines.each do |line|
-    p = line.split(":")
-    puts p[0]
+  lines.each do |p|
+    package = p.split(":")
+    check(package)
   end
 
+elsif option == '--run'
+  user = `id -u`.chop
+  if user == "0"
+    lines = `cat #{filename}`.split("\n")
+    lines.each do |p|
+      package = p.split(":")
+      install(package)
+    end
 
-
+  else
+    puts "Son necesarios permisos de administrador..."
+    exit 1
+  end
 end
