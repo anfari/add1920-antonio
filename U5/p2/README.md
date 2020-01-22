@@ -63,12 +63,12 @@ end
 
 ```
 [Unit]
-Description=Servicio Bot del alumnoXX.
+Description=Servicio Bot del alumno24.
 After=network.service
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/ruby /usr/local/bin/botXXd
+ExecStart=/usr/bin/ruby /usr/local/bin/bot24d
 
 [Install]
 WantedBy=multi-user.target
