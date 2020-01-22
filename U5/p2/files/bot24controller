@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby
+
+def check_status()
+  out = `systemctl status bot24.service | grep Active`
+  status = out.split(" ")
+end
+
+if check_status() == 'active'
+  exit 1
+else
+  `systemctl start bot24.service`
+end

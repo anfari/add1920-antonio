@@ -1,0 +1,41 @@
+#!/usr/bin/env ruby
+
+require 'telegram/bot'
+
+# token:
+# 1. Write your TOKEN value into "token" variable or
+# 2. Create a local file "hiden.token" with your TOKEN value inside
+token = '994565282:AAGeWy5H97ZBHZk2hcjieF-njw8H3-Jk1WY'
+bot_username = '@antonio24_bot'
+
+puts "[INFO] Running bot #{$0}..."
+
+Telegram::Bot::Client.run(token) do |bot|
+  bot.listen do |message|
+    puts " => #{message.text}"
+    campos = message.text.split(" ")
+    if message.text == "/hello"
+      bot.api.send_message(chat_id: message.chat.id, text: "Hello Word!")
+    elsif message.text == "/byebye"
+      bot.api.send_message(chat_id: message.chat.id, text: "Bye bye!")
+    elsif message.text == "/ip"
+      out = `ip a | grep "global eth0"`.split
+      bot.api.send_message(chat_id: message.chat.id, text: "#{out[1]}")
+    elsif message.text == "/mem"
+      out = `free`
+      bot.api.send_message(chat_id: message.chat.id, text: "#{out}")
+    elsif campos[0] == "/ls"
+      out = `ls #{campos[1]}`
+      bot.api.send_message(chat_id: message.chat.id, text: "#{out}")
+    elsif message.text == "/pwd"
+      out = `pwd`
+      bot.api.send_message(chat_id: message.chat.id, text: "#{out}")
+    elsif campos[0] == "/crear"
+      text = campos[2,campos.size].to_s
+      `echo #{text} > #{campos[1]}`
+    elsif campos[0] == "/ver"
+      out = `cat #{campos[1]}`
+      bot.api.send_message(chat_id: message.chat.id, text: "#{out}")
+    end
+  end
+end
